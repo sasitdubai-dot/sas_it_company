@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const storageBucket = process.env.SUPABASE_STORAGE_BUCKET || 'properties';
 
 // Create admin client with service role key (bypasses RLS)
 const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey, {
@@ -14,6 +15,18 @@ const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey, {
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate environment variables
+    if (!supabaseUrl || !supabaseServiceRoleKey) {
+      console.error('Missing Supabase configuration:', {
+        hasUrl: !!supabaseUrl,
+        hasServiceKey: !!supabaseServiceRoleKey,
+      });
+      return NextResponse.json(
+        { error: 'Server configuration error: Missing Supabase credentials' },
+        { status: 500 }
+      );
+    }
+
     const formData = await request.formData();
     const file = formData.get('file') as File;
     const projectId = formData.get('projectId') as string;
@@ -32,23 +45,39 @@ export async function POST(request: NextRequest) {
 
     // Upload using admin client (bypasses RLS)
     const { data, error } = await supabaseAdmin.storage
-      .from('proect')
+      .from(storageBucket)
       .upload(filePath, file, {
         cacheControl: '3600',
         upsert: false
       });
 
     if (error) {
-      console.error('Storage upload error:', error);
+      console.error('Storage upload error:', {
+        error: error.message,
+        statusCode: error.statusCode,
+        bucket: storageBucket,
+        filePath: filePath,
+      });
+      
+      // Provide more helpful error messages
+      let errorMessage = 'Failed to upload image';
+      if (error.message.includes('not found') || error.statusCode === 404) {
+        errorMessage = `Storage bucket '${storageBucket}' not found. Please create it in Supabase Storage.`;
+      } else if (error.message.includes('policy') || error.message.includes('RLS')) {
+        errorMessage = `Permission denied. Please check storage bucket policies for '${storageBucket}'.`;
+      } else {
+        errorMessage = error.message || 'Failed to upload image';
+      }
+      
       return NextResponse.json(
-        { error: 'Failed to upload image', details: error.message },
+        { error: errorMessage, details: error.message },
         { status: 500 }
       );
     }
 
     // Get public URL
     const { data: { publicUrl } } = supabaseAdmin.storage
-      .from('proect')
+      .from(storageBucket)
       .getPublicUrl(filePath);
 
     return NextResponse.json({ url: publicUrl }, { status: 200 });

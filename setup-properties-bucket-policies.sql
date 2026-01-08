@@ -1,19 +1,24 @@
--- Fix Storage RLS Policies to Allow Image Uploads
+-- Setup Storage Policies for 'properties' Bucket
 -- Run this in Supabase SQL Editor
 
--- Drop existing storage policies
-DROP POLICY IF EXISTS "Public project images are viewable by everyone" ON storage.objects;
-DROP POLICY IF EXISTS "Authenticated users can upload project images" ON storage.objects;
-DROP POLICY IF EXISTS "Authenticated users can update project images" ON storage.objects;
-DROP POLICY IF EXISTS "Authenticated users can delete project images" ON storage.objects;
+-- Make sure the bucket is public (you can also do this via the UI)
+UPDATE storage.buckets 
+SET public = true 
+WHERE id = 'properties';
 
--- Create new policies that allow all operations (for Prisma/API usage)
+-- Drop existing policies if they exist
+DROP POLICY IF EXISTS "Public project images are viewable by everyone" ON storage.objects;
+DROP POLICY IF EXISTS "Allow all uploads to properties bucket" ON storage.objects;
+DROP POLICY IF EXISTS "Allow all updates to properties bucket" ON storage.objects;
+DROP POLICY IF EXISTS "Allow all deletes from properties bucket" ON storage.objects;
+
+-- Create new policies that allow all operations (for public bucket)
 -- Public read access
 CREATE POLICY "Public project images are viewable by everyone" 
 ON storage.objects FOR SELECT 
 USING (bucket_id = 'properties');
 
--- Allow all uploads (no authentication required)
+-- Allow all uploads (for public bucket, you may want to restrict this in production)
 CREATE POLICY "Allow all uploads to properties bucket" 
 ON storage.objects FOR INSERT 
 WITH CHECK (bucket_id = 'properties');

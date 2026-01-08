@@ -47,12 +47,13 @@ export async function uploadProjectImage(file: File, projectId: string, index: n
   const fileExt = file.name.split('.').pop()
   const fileName = `${projectId}-${index}.${fileExt}`
   const filePath = `projects/${fileName}`
+  const storageBucket = process.env.SUPABASE_STORAGE_BUCKET || 'properties'
 
   // Use admin client if available (for server-side operations), otherwise use regular client
   const client = supabaseAdmin || supabase
 
   const { data, error } = await client.storage
-    .from('proect')
+    .from(storageBucket)
     .upload(filePath, file, {
       cacheControl: '3600',
       upsert: false
@@ -64,7 +65,7 @@ export async function uploadProjectImage(file: File, projectId: string, index: n
 
   // Get public URL
   const { data: { publicUrl } } = client.storage
-    .from('proect')
+    .from(storageBucket)
     .getPublicUrl(filePath)
 
   return publicUrl
