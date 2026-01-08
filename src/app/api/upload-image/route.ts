@@ -54,14 +54,13 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error('Storage upload error:', {
         error: error.message,
-        statusCode: error.statusCode,
         bucket: storageBucket,
         filePath: filePath,
       });
       
       // Provide more helpful error messages
       let errorMessage = 'Failed to upload image';
-      if (error.message.includes('not found') || error.statusCode === 404) {
+      if (error.message.includes('not found') || error.message.includes('404')) {
         errorMessage = `Storage bucket '${storageBucket}' not found. Please create it in Supabase Storage.`;
       } else if (error.message.includes('policy') || error.message.includes('RLS')) {
         errorMessage = `Permission denied. Please check storage bucket policies for '${storageBucket}'.`;
