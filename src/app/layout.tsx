@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SAS IT Services - Professional IT Solutions in Dubai, UAE",
-  description: "SAS IT Services provides comprehensive IT solutions including networking, security, CCTV surveillance, structured cabling, server solutions, and website development in Dubai, UAE. We Make IT Happen!",
+  title: "Professional IT Services Dubai | Networking, CCTV, Security | SAS IT",
+  description: "24/7 IT support in Dubai. Networking, CCTV installation, server solutions, structured cabling. 500+ projects completed. Same-day service. Call +971-526716178",
   keywords: "IT services Dubai, networking solutions UAE, CCTV installation Dubai, server solutions, website development, structured cabling, computer repair Dubai, IT support UAE",
   authors: [{ name: "SAS IT Services" }],
   openGraph: {

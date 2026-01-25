@@ -144,7 +144,7 @@ export default function Home() {
                 </Link>
                 
                 <a
-                  href="tel:+971-xxx-xxxx"
+                  href="tel:+971526716178"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-600 text-white font-semibold rounded-xl hover:bg-white hover:text-gray-900 transition-all duration-300"
                 >
                   <PhoneIcon className="w-5 h-5 mr-2" />
