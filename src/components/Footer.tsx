@@ -8,14 +8,14 @@ import {
 } from '@heroicons/react/24/outline';
 
 const Footer = () => {
-  const services = [
-    { name: 'Networking & Security', href: '/services#networking' },
-    { name: 'Structured Cabling', href: '/services#cabling' },
-    { name: 'CCTV & Surveillance', href: '/services#cctv' },
-    { name: 'Server Solutions', href: '/services#servers' },
-    { name: 'Website Development', href: '/services#web' },
-    { name: 'Computer Repair', href: '/services#repair' },
-  ];
+const services = [
+  { name: 'Networking & Security', href: '/networking-security-dubai' },
+  { name: 'Server Solutions', href: '/server-solutions-dubai' },
+  { name: 'Structured Cabling', href: '/structured-cabling-dubai' },
+  { name: 'IP Telephony', href: '/ip-telephony-dubai' },
+  { name: 'AMC Annual Maintenance', href: '/amc-annual-maintenance-dubai' },
+  { name: 'Computer Repair', href: '/computer-repair-dubai' },
+];
 
   const quickLinks = [
     { name: 'About Us', href: '/about' },

@@ -2,42 +2,42 @@ import { Shield, Server, Cctv, Settings, Phone, MonitorPlay } from 'lucide-react
 import Link from 'next/link';
 
 const services = [
-    {
-        icon: Shield,
-        title: 'Networking & Security',
-        description: 'Secure and robust network infrastructure for your business.',
-        link: '/services#networking'
-    },
-    {
-        icon: Server,
-        title: 'Server Solutions',
-        description: 'High-performance server setup and maintenance.',
-        link: '/services#servers'
-    },
-    {
-        icon: Cctv,
-        title: 'CCTV & Surveillance',
-        description: 'Advanced monitoring systems for complete security.',
-        link: '/services#cctv'
-    },
-    {
-        icon: Settings,
-        title: 'AMC Services',
-        description: 'Annual maintenance contracts to keep your IT running smooth.',
-        link: '/services'
-    },
-    {
-        icon: Phone,
-        title: 'Telephony Solutions',
-        description: 'Modern communication systems for seamless connectivity.',
-        link: '/services'
-    },
-    {
-        icon: MonitorPlay,
-        title: 'Smart Meeting Rooms',
-        description: 'State-of-the-art audiovisual setups for conferences.',
-        link: '/services'
-    }
+  {
+    icon: Shield,
+    title: 'Networking & Security',
+    description: 'Secure and robust network infrastructure for your business.',
+    link: '/networking-security-dubai',
+  },
+  {
+    icon: Server,
+    title: 'Server Solutions',
+    description: 'High-performance server setup and maintenance.',
+    link: '/server-solutions-dubai',
+  },
+  {
+    icon: Cctv,
+    title: 'CCTV & Surveillance',
+    description: 'Advanced monitoring systems for complete security.',
+    link: '/structured-cabling-dubai',
+  },
+  {
+    icon: Settings,
+    title: 'AMC Services',
+    description: 'Annual maintenance contracts to keep your IT running smooth.',
+    link: '/amc-annual-maintenance-dubai',
+  },
+  {
+    icon: Phone,
+    title: 'Telephony Solutions',
+    description: 'Modern communication systems for seamless connectivity.',
+    link: '/ip-telephony-dubai',
+  },
+  {
+    icon: MonitorPlay,
+    title: 'Smart Meeting Rooms',
+    description: 'State-of-the-art audiovisual setups for conferences.',
+    link: '/services',
+  },
 ];
 
 export default function Services() {
