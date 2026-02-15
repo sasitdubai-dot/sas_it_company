@@ -12,6 +12,7 @@ import ServiceAreas from "./sections/ServiceAreas";
 import WhatWeOffer from "./sections/WhatWeOffer";
 import WhyChooseServers from "./sections/WhyChooseServer";
 
+import RelatedServices from "@/components/RelatedServices";
 
 
 export default function ServerSolution() {
@@ -29,6 +30,25 @@ export default function ServerSolution() {
       <ServiceAreas />
       <DisasterRecovery />
       <EmergencyServerSupport />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <RelatedServices
+        title="Related Services"
+        links={[
+          {
+            name: "Networking & Security Services Dubai",
+            href: "/networking-security-dubai",
+            description: "Server networking, firewall rules & secure access.",
+            badge: "Security",
+          },
+          {
+            name: "IT Annual Maintenance Contract (AMC) Dubai",
+            href: "/amc-annual-maintenance-dubai",
+            description: "Ongoing monitoring, patching & server maintenance support.",
+            badge: "Maintenance",
+          },
+        ]}
+      />
+</div>
       <FinalCTA />
     </>
     

@@ -11,6 +11,7 @@ import ServiceAreas from "./sections/ServiceArea";
 import WhatWeInstall from "./sections/WhatWeInstall";
 import WhyChooseSASIT from "./sections/WhyChoose";
 
+import RelatedServices from "@/components/RelatedServices";
 
 
 export default function NetworkingSecurityPage() {
@@ -27,6 +28,25 @@ export default function NetworkingSecurityPage() {
      <CablingServices />
      <ServiceAreas />
      <EmergencyCableRepair />
+     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <RelatedServices
+        title="Related Services"
+        links={[
+          {
+            name: "Networking & Security Services Dubai",
+            href: "/networking-security-dubai",
+            description: "Switching, routing, firewall & secure network setup.",
+            badge: "Network",
+          },
+          {
+            name: "IP Telephony Services Dubai",
+            href: "/ip-telephony-dubai",
+            description: "VoIP PBX, extensions & call routing over structured cabling.",
+            badge: "Voice",
+          },
+        ]}
+      />
+      </div>
      <FinalCTA />
     </>
     

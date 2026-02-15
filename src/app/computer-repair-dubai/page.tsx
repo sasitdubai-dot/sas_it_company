@@ -11,6 +11,7 @@ import {
   PreventiveMaintenanceSection 
 } from './sections/AdditionalServices';
 import { FAQSection, FinalCTA } from './sections/FAQAndCTA';
+import RelatedServices from "@/components/RelatedServices";
 
 export default function ComputerRepairPage() {
   return (
@@ -47,7 +48,27 @@ export default function ComputerRepairPage() {
       
       {/* FAQ - Slate/Gray gradient */}
       <FAQSection />
-      
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+
+      <RelatedServices
+        title="Related Services"
+        links={[
+          {
+            name: "IT Annual Maintenance Contract (AMC) Dubai",
+            href: "/amc-annual-maintenance-dubai",
+            description: "Preventive maintenance to reduce breakdowns.",
+            badge: "Maintenance",
+          },
+          {
+            name: "Networking & Security Services Dubai",
+            href: "/networking-security-dubai",
+            description: "Office network setup, WiFi optimization & security.",
+            badge: "Network",
+          },
+        ]}
+      />
+      </div>
+
       {/* Final CTA - Orange/Red gradient */}
       <FinalCTA />
     </div>

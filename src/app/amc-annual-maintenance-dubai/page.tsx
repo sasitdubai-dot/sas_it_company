@@ -14,6 +14,7 @@ import SLASection from './sections/SLASection';
 import ServiceAreas from './sections/ServiceAreas';
 import ReportingCommunication  from './sections/ReportingCommunication';
 
+import RelatedServices from "@/components/RelatedServices";
 
 
 export default function AmcPage() {
@@ -31,7 +32,7 @@ export default function AmcPage() {
          <AdditionalServices/>
          <EmergencyEscalation />
 
-<SLASection /> 
+       <SLASection /> 
       {/* Technology Partners */}
       {/* <TechnologyPartners /> */}
 
@@ -47,7 +48,26 @@ export default function AmcPage() {
 
       {/* FAQ and Call to Action */}
       <FAQAndCTA />
+     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+      <RelatedServices
+        title="Related Services"
+        links={[
+          {
+            name: "Server Solutions Dubai",
+            href: "/server-solutions-dubai",
+            description: "Server health checks, updates, backups & monitoring.",
+            badge: "Infrastructure",
+          },
+          {
+            name: "Computer Repair Services Dubai",
+            href: "/computer-repair-dubai",
+            description: "Workstation troubleshooting, upgrades & fast fixes.",
+            badge: "Support",
+          },
+        ]}
+      />
+      </div>
       {/* Final CTA */}
       <FinalCTA />
     </div>
