@@ -1,6 +1,6 @@
 'use client';
 
-import { PhoneIcon, ArrowRightIcon, ShieldCheckIcon,CheckCircleIcon,ClockIcon,StarIcon } from '@heroicons/react/24/outline';
+import { PhoneIcon, ArrowRightIcon, ShieldCheckIcon, CheckCircleIcon, ClockIcon, StarIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
@@ -22,20 +22,21 @@ export default function HeroSection() {
           {/* Trust Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
             <ShieldCheckIcon className="w-5 h-5 text-blue-400" />
-            <span className="text-sm text-blue-300">Fortinet & Cisco Certified Partners</span>
+            <span className="text-sm text-blue-300">Certified IT Support & Maintenance</span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Professional Networking & <br />
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Security Solutions
-            </span>
-          </h1>
+         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              IT Annual Maintenance <br /> Contracts&nbsp;
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                in Dubai
+              </span>
+            </h1>
+
 
           {/* Subheadline */}
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Enterprise-grade network infrastructure and security solutions for businesses across Dubai. 500+ successful deployments with 24/7 expert support.
+            24/7 support • Preventive maintenance • Fixed monthly cost • Free initial audit
           </p>
 
           {/* CTAs */}
@@ -57,16 +58,16 @@ export default function HeroSection() {
               className="px-8 py-4 rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm text-white font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <ArrowRightIcon className="w-5 h-5" />
-              WhatsApp Us
+              WhatsApp for Free Quote
             </motion.a>
           </div>
 
           {/* Trust Indicators */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {[{ icon: CheckCircleIcon, text: '500+ Networks', color: 'text-green-400' },
-              { icon: ShieldCheckIcon, text: 'Fortinet Certified', color: 'text-blue-400' },
-              { icon: ClockIcon, text: '24/7 Support', color: 'text-purple-400' },
-              { icon: StarIcon, text: '2-Year Warranty', color: 'text-yellow-400' }]
+            {[{ icon: CheckCircleIcon, text: '200+ Companies Under AMC', color: 'text-green-400' },
+              { icon: ShieldCheckIcon, text: 'Average 99.5% Uptime', color: 'text-blue-400' },
+              { icon: ClockIcon, text: '4-Hour Response SLA', color: 'text-purple-400' },
+              { icon: StarIcon, text: 'Flexible Contract Terms', color: 'text-yellow-400' }]
               .map((item, idx) => (
                 <motion.div
                   key={idx}
