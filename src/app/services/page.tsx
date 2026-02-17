@@ -28,6 +28,7 @@ interface Service {
   pricing: string;
   gradient: string;
   bgGradient: string;
+  link?: string;
 }
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
@@ -55,9 +56,22 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
                 <service.icon className="w-10 h-10 text-white" />
               </div>
               <div className="mt-6">
-                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300">
-                  {service.title}
-                </h2>
+               {service.link ? (
+                      <Link href={service.link}>
+                        <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3 
+                          group-hover:text-transparent group-hover:bg-clip-text 
+                          group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 
+                          transition-all duration-300">
+                          {service.title}
+                        </h2>
+                      </Link>
+                    ) : (
+                      <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3">
+                        {service.title}
+                      </h2>
+                    )}
+
+
                 <div className={`inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r ${service.gradient} text-white font-semibold text-sm shadow-lg`}>
                   {service.pricing}
                 </div>
@@ -135,6 +149,7 @@ export default function ServicesPage() {
       icon: ShieldCheckIcon,
       title: 'Networking & Security',
       description: 'Comprehensive network infrastructure and cybersecurity solutions for enterprises.',
+      link: '/networking-security-dubai',
       features: [
         'Network Design & Implementation',
         'Firewall Configuration & Management',
@@ -153,6 +168,7 @@ export default function ServicesPage() {
       icon: CogIcon,
       title: 'Structured Cabling',
       description: 'Professional cabling solutions for offices, warehouses, and commercial spaces.',
+      link: '/structured-cabling-dubai',
       features: [
         'Cat6/Cat6A Cable Installation',
         'Fiber Optic Cabling',
@@ -189,6 +205,7 @@ export default function ServicesPage() {
       icon: ServerIcon,
       title: 'Server & System Solutions',
       description: 'Complete server infrastructure and cloud migration services.',
+      link: '/server-solutions-dubai',
       features: [
         'Server Installation & Setup',
         'Virtualization Solutions',
@@ -207,6 +224,7 @@ export default function ServicesPage() {
       icon: ShieldCheckIcon,
       title: 'Access Control & Attendance',
       description: 'Modern access control and time attendance management systems.',
+      link: '/amc-annual-maintenance-dubai',
       features: [
         'Biometric Access Control',
         'RFID Card Systems',
@@ -225,6 +243,7 @@ export default function ServicesPage() {
       icon: WrenchScrewdriverIcon,
       title: 'Computer Repair & Maintenance',
       description: 'Professional computer and laptop repair services with quick turnaround.',
+      link: '/computer-repair-dubai',
       features: [
         'Hardware Diagnostics & Repair',
         'Software Troubleshooting',

@@ -22,9 +22,23 @@ export default function ServerHero() {
             <ShieldCheckIcon className="w-5 h-5 text-blue-400" />
             <span className="text-sm text-blue-300">SERVER SOLUTIONS & MAINTENANCE IN DUBAI</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
-            Professional Server Solutions in Dubai
-          </h1>
+        
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                 Professional  Server <br />
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                 Solutions in 
+                </span>
+                <motion.span
+                  className="relative inline-block ml-2"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    Dubai, UAE
+                  </span>
+                </motion.span>
+              </h1>
           <motion.span
             className="relative inline-block ml-2"
             initial={{ opacity: 0, scale: 0.5 }}
