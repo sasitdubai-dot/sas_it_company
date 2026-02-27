@@ -40,5 +40,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    { 
+      url: `${baseUrl}/access-control-system-dubai`,
+     lastModified: new Date(),
+      changeFrequency: "monthly",
+       priority: 0.8, 
+      }, 
+      { 
+        url: `${baseUrl}/commercial-cctv-installation-dubai`,
+       lastModified: new Date(), 
+       changeFrequency: "monthly",
+        priority: 0.8, 
+      }, 
+      { 
+        url: `${baseUrl}/smart-meeting-room-solutions-dubai`, 
+        lastModified: new Date(), 
+        changeFrequency: "monthly", 
+        priority: 0.8, 
+      },
   ];
 }

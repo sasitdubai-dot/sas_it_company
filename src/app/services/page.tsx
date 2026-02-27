@@ -187,6 +187,7 @@ export default function ServicesPage() {
       icon: VideoCameraIcon,
       title: 'CCTV & Surveillance',
       description: 'Advanced surveillance systems for comprehensive security monitoring.',
+      link: '/commercial-cctv-installation-dubai',
       features: [
         'IP Camera Installation',
         'NVR/DVR Setup & Configuration',
@@ -224,7 +225,7 @@ export default function ServicesPage() {
       icon: ShieldCheckIcon,
       title: 'Access Control & Attendance',
       description: 'Modern access control and time attendance management systems.',
-      link: '/amc-annual-maintenance-dubai',
+      link: '/access-control-system-dubai',
       features: [
         'Biometric Access Control',
         'RFID Card Systems',

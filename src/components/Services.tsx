@@ -18,7 +18,7 @@ const services = [
     icon: Cctv,
     title: 'CCTV & Surveillance',
     description: 'Advanced monitoring systems for complete security.',
-    link: '/structured-cabling-dubai',
+    link: '/commercial-cctv-installation-dubai',
   },
   {
     icon: Settings,
@@ -36,7 +36,7 @@ const services = [
     icon: MonitorPlay,
     title: 'Smart Meeting Rooms',
     description: 'State-of-the-art audiovisual setups for conferences.',
-    link: '/services',
+    link: '/smart-meeting-room-solutions-dubai',
   },
 ];
 

@@ -15,6 +15,10 @@ const services = [
   { name: 'IP Telephony', href: '/ip-telephony-dubai' },
   { name: 'AMC Annual Maintenance', href: '/amc-annual-maintenance-dubai' },
   { name: 'Computer Repair', href: '/computer-repair-dubai' },
+  { name: 'Access Control System', href: '/access-control-system-dubai' },
+  { name: 'CCTV & Surveillance', href: '/commercial-cctv-installation-dubai' },
+  { name: 'Smart Meeting Rooms', href: '/smart-meeting-room-solutions-dubai' },
+
 ];
 
   const quickLinks = [
