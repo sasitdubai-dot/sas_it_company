@@ -39,10 +39,10 @@ export default function AccessControlPage() {
                       title="Related Services"
                       links={[
                         {
-                          name: "Networking & Security Services Dubai",
-                          href: "/networking-security-dubai",
-                          description: "Stable network setup & secure VoIP traffic handling.",
-                          badge: "Network",
+                          name: "CCTV Installation Dubai",
+                          href: "/commercial-cctv-installation-dubai",
+                          description: "Enterprise security camera systems for offices, warehouses and retail",
+                          badge: "Installation",
                           },
                         {
                             name: "IT Annual Maintenance Contract (AMC) Dubai",
