@@ -16,35 +16,55 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Professional IT Services Dubai | Networking, CCTV, Security | SAS IT",
-  description: "24/7 IT support in Dubai. Networking, CCTV installation, server solutions, structured cabling. 500+ projects completed. Same-day service. Call +971-526716178",
-  keywords: "IT services Dubai, networking solutions UAE, CCTV installation Dubai, server solutions, website development, structured cabling, computer repair Dubai, IT support UAE",
-  authors: [{ name: "SAS IT Services" }],
+  title: {
+    default: "IT Support Company Dubai | Networking, CCTV, Security | SAS IT",
+    template: "%s | SAS IT Services Dubai",
+  },
+  description:
+    "Leading IT support company in Dubai. Networking, CCTV installation, server solutions, structured cabling, IT AMC. 500+ projects. 24/7 support. Call +971-526716178",
+  keywords:
+    "IT support company Dubai, IT services Dubai, CCTV installation Dubai, networking solutions UAE, IT AMC Dubai, server solutions Dubai, structured cabling Dubai, managed IT services Dubai",
+  authors: [{ name: "SAS IT Services", url: "https://www.sasitdubai.com" }],
+  metadataBase: new URL("https://www.sasitdubai.com"),
+  alternates: {
+    canonical: "https://www.sasitdubai.com",
+  },
   openGraph: {
-    title: "SAS IT Services - We Make IT Happen!",
-    description: "Professional IT Solutions in Dubai, UAE",
-    url: "https://sasitservices.com",
+    title: "IT Support Company Dubai | SAS IT Services",
+    description:
+      "Leading IT support company in Dubai. Networking, CCTV, server solutions, IT AMC. 500+ projects completed. 24/7 support.",
+    url: "https://www.sasitdubai.com",
     siteName: "SAS IT Services",
     images: [
       {
         url: "/images/logo.jpeg",
         width: 800,
         height: 600,
-        alt: "SAS IT Services Logo",
+        alt: "SAS IT Services Dubai",
       },
     ],
-    locale: "en_US",
+    locale: "en_AE",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SAS IT Services - We Make IT Happen!",
-    description: "Professional IT Solutions in Dubai, UAE",
+    title: "IT Support Company Dubai | SAS IT Services",
+    description:
+      "Leading IT support company in Dubai. Networking, CCTV, server solutions, IT AMC. 500+ projects.",
     images: ["/images/logo.jpeg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "",
   },
 };
 
@@ -60,9 +80,7 @@ export default function RootLayout({
       >
         <AdminProvider>
           <Header />
-          <main className="min-h-screen pt-16">
-            {children}
-          </main>
+          {children}
           <Footer />
         </AdminProvider>
       </body>
