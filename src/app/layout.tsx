@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { AdminProvider } from "@/contexts/AdminContext";
 
 const geistSans = Geist({
@@ -63,9 +64,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "",
-  },
 };
 
 export default function RootLayout({
@@ -78,6 +76,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <LocalBusinessSchema />
         <AdminProvider>
           <Header />
           {children}

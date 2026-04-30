@@ -8,18 +8,17 @@ import {
 } from '@heroicons/react/24/outline';
 
 const Footer = () => {
-const services = [
-  { name: 'Networking & Security', href: '/networking-security-dubai' },
-  { name: 'Server Solutions', href: '/server-solutions-dubai' },
-  { name: 'Structured Cabling', href: '/structured-cabling-dubai' },
-  { name: 'IP Telephony', href: '/ip-telephony-dubai' },
-  { name: 'AMC Annual Maintenance', href: '/amc-annual-maintenance-dubai' },
-  { name: 'Computer Repair', href: '/computer-repair-dubai' },
-  { name: 'Access Control System', href: '/access-control-system-dubai' },
-  { name: 'CCTV & Surveillance', href: '/commercial-cctv-installation-dubai' },
-  { name: 'Smart Meeting Rooms', href: '/smart-meeting-room-solutions-dubai' },
-
-];
+  const services = [
+    { name: 'Networking & Security', href: '/networking-security-dubai' },
+    { name: 'Server Solutions', href: '/server-solutions-dubai' },
+    { name: 'Structured Cabling', href: '/structured-cabling-dubai' },
+    { name: 'IP Telephony', href: '/ip-telephony-dubai' },
+    { name: 'AMC Annual Maintenance', href: '/amc-annual-maintenance-dubai' },
+    { name: 'Computer Repair', href: '/computer-repair-dubai' },
+    { name: 'Access Control System', href: '/access-control-system-dubai' },
+    { name: 'CCTV & Surveillance', href: '/commercial-cctv-installation-dubai' },
+    { name: 'Smart Meeting Rooms', href: '/smart-meeting-room-solutions-dubai' },
+  ];
 
   const quickLinks = [
     { name: 'About Us', href: '/about' },
@@ -37,145 +36,91 @@ const services = [
   ];
 
   return (
-    <footer className="footer-section">
+    <footer className="footer">
       <div className="footer-container">
-        <div className="footer-grid">
-          {/* Company Info */}
-          <div className="footer-company">
-            <Link href="/" className="footer-logo-link">
-              <Image
-                src="/images/logo.jpeg"
-                alt="SAS IT Services"
-                width={50}
-                height={50}
-                className="footer-logo-image"
-              />
-              <div className="footer-logo-text">
-                <div className="footer-company-name">
-                  SAS <span className="footer-accent">IT Services</span>
-                </div>
-                <div className="footer-tagline">We Make IT Happen!</div>
-              </div>
-            </Link>
-            
-            <p className="footer-description">
-              Professional IT solutions provider in Dubai, UAE. Specializing in networking, 
-              security, CCTV surveillance, server solutions, and comprehensive IT support 
-              for businesses of all sizes.
-            </p>
-
-            {/* Contact Info */}
-            <div className="footer-contact">
-              <div className="footer-contact-item">
-                <PhoneIcon className="footer-contact-icon" />
-                <div className="footer-contact-text">
-                  <a href="tel:+971501234567" className="footer-contact-link">
-                    +971-526716178
-                  </a>
-                  <span className="footer-separator">|</span>
-                  <a href="tel:+97143214567" className="footer-contact-link">
-                    +971-545829411
-                  </a>
-                </div>
-              </div>
-              
-              <div className="footer-contact-item">
-                <EnvelopeIcon className="footer-contact-icon" />
-                <a href="mailto:Info@sasitdubai.com" className="footer-contact-link">
-                  Info@sasitdubai.com
-                </a>
-              </div>
-              
-              <div className="footer-contact-item">
-                <MapPinIcon className="footer-contact-icon footer-contact-icon-top" />
-                <span className="footer-contact-text">Business Bay, Dubai, UAE</span>
-              </div>
-              
-              <div className="footer-contact-item">
-                <ClockIcon className="footer-contact-icon" />
-                <span className="footer-contact-text">Mon-Fri: 9:00 AM - 6:00 PM</span>
-              </div>
+        {/* Company Info */}
+        <div className="footer-brand">
+          <Link href="/" className="footer-logo">
+            <Image src="/images/logo.jpeg" alt="SAS IT Services Dubai" width={50} height={50} />
+            <div>
+              <div className="footer-logo-name">SAS IT Services</div>
+              <div className="footer-logo-tagline">We Make IT Happen!</div>
             </div>
-          </div>
+          </Link>
+          <p className="footer-description">
+            Professional IT solutions provider in Dubai, UAE. Specializing in networking,
+            security, CCTV surveillance, server solutions, and comprehensive IT support
+            for businesses of all sizes.
+          </p>
 
-          {/* Services */}
-          <div className="footer-column">
-            <h3 className="footer-column-title">Our Services</h3>
-            <ul className="footer-column-list">
-              {services.map((service) => (
-                <li key={service.name} className="footer-list-item">
-                  <Link href={service.href} className="footer-link">
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Contact Info */}
+          <div className="footer-contact">
+            <a href="tel:+971526716178" className="footer-contact-item">
+              <PhoneIcon className="w-4 h-4" />
+              +971-526716178
+            </a>
+            <span className="footer-contact-sep"> | </span>
+            <a href="tel:+971545829411" className="footer-contact-item">
+              +971-545829411
+            </a>
           </div>
-
-          {/* Quick Links */}
-          <div className="footer-column">
-            <h3 className="footer-column-title">Quick Links</h3>
-            <ul className="footer-column-list">
-              {quickLinks.map((link) => (
-                <li key={link.name} className="footer-list-item">
-                  <Link href={link.href} className="footer-link">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <a href="mailto:Info@sasitdubai.com" className="footer-contact-item">
+            <EnvelopeIcon className="w-4 h-4" />
+            Info@sasitdubai.com
+          </a>
+          <div className="footer-contact-item">
+            <MapPinIcon className="w-4 h-4" />
+            Business Bay, Dubai, UAE
+          </div>
+          <div className="footer-contact-item">
+            <ClockIcon className="w-4 h-4" />
+            Mon-Fri: 9:00 AM - 6:00 PM
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="footer-bottom">
-          <div className="footer-bottom-content">
-            <div className="footer-copyright">
-              © {new Date().getFullYear()} SAS IT Services. All rights reserved.
-            </div>
-            
-            {/* Social Media & Legal Links */}
-            <div className="footer-links-section">
-              <div className="footer-social">
-                <a
-                  href="https://www.instagram.com/sasitservices"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-link"
-                >
-                  Instagram
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/sasitservices"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-link"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href="https://www.facebook.com/sasitservices"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-social-link"
-                >
-                  Facebook
-                </a>
-              </div>
-              
-              <div className="footer-legal">
-                {legalLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="footer-legal-link"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* Services */}
+        <div className="footer-col">
+          <h3 className="footer-col-title">Our Services</h3>
+          <ul>
+            {services.map((service) => (
+              <li key={service.name}>
+                <Link href={service.href} className="footer-link">
+                  {service.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Quick Links */}
+        <div className="footer-col">
+          <h3 className="footer-col-title">Quick Links</h3>
+          <ul>
+            {quickLinks.map((link) => (
+              <li key={link.name}>
+                <Link href={link.href} className="footer-link">
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Bottom Section */}
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} SAS IT Services. All rights reserved.</p>
+
+        {/* Social Media & Legal Links */}
+        <div className="footer-bottom-links">
+          <a href="https://www.instagram.com/sasitservices" target="_blank" rel="noopener noreferrer" className="footer-social">Instagram</a>
+          <a href="https://www.linkedin.com/company/sasitservices" target="_blank" rel="noopener noreferrer" className="footer-social">LinkedIn</a>
+          <a href="https://www.facebook.com/sasitservices" target="_blank" rel="noopener noreferrer" className="footer-social">Facebook</a>
+          {legalLinks.map((link) => (
+            <Link key={link.name} href={link.href} className="footer-legal-link">
+              {link.name}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>

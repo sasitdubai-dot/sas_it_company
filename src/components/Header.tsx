@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -15,7 +14,6 @@ const Header = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 20);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -31,101 +29,74 @@ const Header = () => {
   ];
 
   return (
-    <header className={`header-fixed ${isScrolled ? 'header-scrolled' : ''}`}>
-      <div className="header-container">
-        <div className="header-content">
-          {/* Logo */}
-          <Link href="/" className="header-logo">
-            <Image
-              src="/images/logo.jpeg"
-              alt="SAS IT Services"
-              width={45}
-              height={45}
-              className="rounded-full"
-            />
-            <div className="header-logo-text">
-              SAS <span className="header-logo-accent">IT Services</span>
-            </div>
+    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
+      {/* Logo */}
+      <Link href="/" className="header-logo">
+        <Image src="/images/logo.jpeg" alt="SAS IT Services" width={40} height={40} />
+        <span>SAS IT Services</span>
+      </Link>
+
+      {/* Desktop Navigation */}
+      <nav className="header-nav">
+        {navigation.map((item) => (
+          <Link key={item.name} href={item.href} className="header-nav-link">
+            {item.name}
           </Link>
+        ))}
+      </nav>
 
-          {/* Desktop Navigation */}
-          <nav className="header-nav">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="header-nav-link"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Contact Info & CTA */}
-          <div className="header-contact">
-            <a
-              href="tel:+971501234567"
-              className="header-phone"
-            >
-              <PhoneIcon className="h-4 w-4 mr-2" />
-              <span className="text-sm">+971-526716178</span>
-            </a>
-            <Link
-              href="/contact"
-              className="btn-primary header-cta-primary"
-            >
-              Get Quote
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="header-mobile-btn"
-          >
-            {isMenuOpen ? (
-              <XMarkIcon className="h-6 w-6" />
-            ) : (
-              <Bars3Icon className="h-6 w-6" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="header-mobile-menu">
-            <div className="mobile-nav-items">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="header-mobile-link"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-            <div className="mobile-nav-footer">
-              <a
-                href="tel:+971501234567"
-                className="mobile-phone-link"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <PhoneIcon className="h-4 w-4 mr-2" />
-                <span>+971-526716178</span>
-              </a>
-              <Link
-                href="/contact"
-                className="btn-primary mobile-cta-primary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Get Quote
-              </Link>
-            </div>
-          </div>
-        )}
+      {/* Contact Info & CTA */}
+      <div className="header-actions">
+        <a href="tel:+971526716178" className="header-phone">
+          <PhoneIcon className="w-4 h-4" />
+          +971-526716178
+        </a>
+        <Link href="/contact" className="header-cta">
+          Get Quote
+        </Link>
       </div>
+
+      {/* Mobile menu button */}
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="header-mobile-btn"
+      >
+        {isMenuOpen ? (
+          <XMarkIcon className="w-6 h-6" />
+        ) : (
+          <Bars3Icon className="w-6 h-6" />
+        )}
+      </button>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="header-mobile-menu">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="header-mobile-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+            </Link>
+          ))}
+          <a
+            href="tel:+971526716178"
+            className="header-mobile-phone"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            +971-526716178
+          </a>
+          <Link
+            href="/contact"
+            className="header-mobile-cta"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Get Quote
+          </Link>
+        </div>
+      )}
     </header>
   );
 };
