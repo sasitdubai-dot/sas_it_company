@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:safe": "next dev",
-    "build": "next build --turbopack",
-    "build:safe": "next build",
+    "build": "prisma generate && next build --turbopack",
+    "build:safe": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
     "test:db": "node test-connection.js"
