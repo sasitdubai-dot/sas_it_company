@@ -10,64 +10,70 @@ type ServiceLink = {
 
 type RelatedServicesProps = {
   title?: string;
-  links: ServiceLink[];
+  links?: ServiceLink[];
+  currentService?: string;
 };
+
+const defaultLinks: ServiceLink[] = [
+  { name: "IT Support Dubai", href: "/it-support-dubai", description: "24/7 on-site and remote IT support" },
+  { name: "IT AMC Dubai", href: "/amc-annual-maintenance-dubai", description: "Annual maintenance contracts" },
+  { name: "CCTV Installation Dubai", href: "/commercial-cctv-installation-dubai", description: "Commercial surveillance systems" },
+  { name: "Networking & Security", href: "/networking-security-dubai", description: "Firewalls, WiFi, structured cabling" },
+  { name: "Server Solutions Dubai", href: "/server-solutions-dubai", description: "On-premise and cloud servers" },
+  { name: "Access Control Dubai", href: "/access-control-system-dubai", description: "Biometric and RFID systems" },
+];
 
 export default function RelatedServices({
   title = "Related IT Services in Dubai",
   links,
+  currentService,
 }: RelatedServicesProps) {
+  const displayLinks = (links ?? defaultLinks).filter(
+    (l) => !currentService || l.href !== `/${currentService}`
+  );
+
   return (
-    <section className="mt-16">
-      {/* divider glow */}
+    <section className="py-16 px-6 bg-gray-900 border-t border-gray-800">
       <div className="relative mb-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent" />
-        <div className="absolute inset-x-0 -top-6 h-16 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 blur-2xl" />
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-700" />
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-gray-900 px-4 text-sm text-gray-500 uppercase tracking-widest">
+            {title}
+          </span>
+        </div>
       </div>
 
-      <div className="flex items-end justify-between gap-4 mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>
-        
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {links.map((service) => (
+      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {displayLinks.map((service) => (
           <Link
             key={service.href}
             href={service.href}
-            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-blue-400/30 hover:bg-white/10"
+            className="relative group bg-[#0f1b2d] border border-gray-700 hover:border-[#4a9eff]/60 rounded-xl p-5 transition-all duration-200"
           >
-            {/* background glow */}
-            <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-blue-500/10 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="pointer-events-none absolute -bottom-24 -left-24 h-56 w-56 rounded-full bg-purple-500/10 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#4a9eff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                {service.badge && (
-                  <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-blue-200 mb-3">
-                    {service.badge}
-                  </div>
-                )}
+            {service.badge && (
+              <span className="inline-block mb-2 text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full">
+                {service.badge}
+              </span>
+            )}
 
-                <h3 className="text-white text-lg font-semibold leading-snug">
-                  {service.name}
-                </h3>
+            <h3 className="text-white font-semibold text-base mb-1 group-hover:text-[#4a9eff] transition-colors">
+              {service.name}
+            </h3>
 
-                {service.description && (
-                  <p className="text-gray-300 text-sm mt-2 leading-relaxed">
-                    {service.description}
-                  </p>
-                )}
-              </div>
+            {service.description && (
+              <p className="text-gray-400 text-sm leading-relaxed mb-3">
+                {service.description}
+              </p>
+            )}
 
-              <div className="shrink-0 rounded-xl border border-white/10 bg-white/5 p-3 transition-transform duration-300 group-hover:translate-x-1 group-hover:border-blue-400/30">
-                <ArrowRightIcon className="h-5 w-5 text-blue-300" />
-              </div>
-            </div>
-
-            <div className="mt-5 text-sm font-medium text-blue-300 group-hover:text-blue-200">
-              Explore service →
-            </div>
+            <span className="inline-flex items-center gap-1 text-[#4a9eff] text-sm font-medium group-hover:gap-2 transition-all">
+              Explore service
+              <ArrowRightIcon className="w-4 h-4" />
+            </span>
           </Link>
         ))}
       </div>
