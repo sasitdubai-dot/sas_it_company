@@ -29,74 +29,98 @@ const Header = () => {
   ];
 
   return (
-    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
-      {/* Logo */}
-      <Link href="/" className="header-logo">
-        <Image src="/images/logo.jpeg" alt="SAS IT Services" width={40} height={40} />
-        <span>SAS IT Services</span>
-      </Link>
+    <header className={`header-fixed ${isScrolled ? 'header-scrolled' : ''}`}>
+      <div className="header-container">
+        <div className="header-content">
 
-      {/* Desktop Navigation */}
-      <nav className="header-nav">
-        {navigation.map((item) => (
-          <Link key={item.name} href={item.href} className="header-nav-link">
-            {item.name}
+          {/* Logo */}
+          <Link href="/" className="header-logo">
+            <Image
+              src="/images/logo.jpeg"
+              alt="SAS IT Services"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+            <div>
+              <div className="header-logo-text">
+                SAS IT <span className="header-logo-accent">Services</span>
+              </div>
+            </div>
           </Link>
-        ))}
-      </nav>
 
-      {/* Contact Info & CTA */}
-      <div className="header-actions">
-        <a href="tel:+971526716178" className="header-phone">
-          <PhoneIcon className="w-4 h-4" />
-          +971-526716178
-        </a>
-        <Link href="/contact" className="header-cta">
-          Get Quote
-        </Link>
-      </div>
+          {/* Desktop Navigation */}
+          <nav className="header-nav">
+            {navigation.map((item) => (
+              <div key={item.name} className="nav-item-wrapper">
+                <Link href={item.href} className="header-nav-link">
+                  {item.name}
+                </Link>
+              </div>
+            ))}
+          </nav>
 
-      {/* Mobile menu button */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="header-mobile-btn"
-      >
-        {isMenuOpen ? (
-          <XMarkIcon className="w-6 h-6" />
-        ) : (
-          <Bars3Icon className="w-6 h-6" />
-        )}
-      </button>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="header-mobile-menu">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="header-mobile-link"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.name}
+          {/* Contact Info & CTA */}
+          <div className="header-contact">
+            <a href="tel:+971526716178" className="header-phone">
+              <PhoneIcon className="w-4 h-4 mr-1" />
+              +971-526716178
+            </a>
+            <Link href="/contact" className="header-cta-primary">
+              Get Quote
             </Link>
-          ))}
-          <a
-            href="tel:+971526716178"
-            className="header-mobile-phone"
-            onClick={() => setIsMenuOpen(false)}
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="header-mobile-btn"
+            aria-label="Toggle menu"
           >
-            +971-526716178
-          </a>
-          <Link
-            href="/contact"
-            className="header-mobile-cta"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Get Quote
-          </Link>
+            {isMenuOpen ? (
+              <XMarkIcon className="w-6 h-6" />
+            ) : (
+              <Bars3Icon className="w-6 h-6" />
+            )}
+          </button>
         </div>
-      )}
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="header-mobile-menu">
+            <div className="mobile-nav-items">
+              {navigation.map((item) => (
+                <div key={item.name} className="mobile-nav-item">
+                  <Link
+                    href={item.href}
+                    className="header-mobile-link"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </div>
+              ))}
+              <div className="mobile-nav-actions">
+                <a
+                  href="tel:+971526716178"
+                  className="mobile-phone-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <PhoneIcon className="w-4 h-4" />
+                  +971-526716178
+                </a>
+                <Link
+                  href="/contact"
+                  className="mobile-cta-btn"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Quote
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   );
 };
